@@ -74,6 +74,13 @@ export const TodoList: React.FC<Props> = React.memo(
     );
   },
   (prev, next) => {
-    return prev.todos === next.todos && prev.selectTodo === next.selectTodo;
+    const prevTodosId = prev.todos.map(todo => todo.id);
+    const nextTodosId = next.todos.map(todo => todo.id);
+
+    return (
+      prev.todos.length === next.todos.length &&
+      prevTodosId.every(todoId => nextTodosId.includes(todoId)) &&
+      prev.selectTodo === next.selectTodo
+    );
   },
 );

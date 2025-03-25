@@ -25,8 +25,8 @@ export const TodoModal: React.FC<Props> = ({
       .catch(error => setErrorMessage(error))
       .finally(() => setLoadingUser(false));
 
-    return setSelectedUser(null);
-  }, []);
+    return () => setSelectedUser(null);
+  }, [selectedTodo]);
 
   return (
     <div className="modal is-active" data-cy="modal">
