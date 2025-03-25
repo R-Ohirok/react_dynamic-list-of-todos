@@ -34,14 +34,11 @@ export const TodoModal: React.FC<Props> = ({
 
       {errorMessage && (
         <div className="modal-card">
-          <header className="modal-card-head">
-            <div
-              // eslint-disable-next-line max-len
-              className="modal-card-title has-text-weight-medium notification is-danger"
-              data-cy="modal-header"
-            >
-              {`${errorMessage} information. Try again later.`}
-            </div>
+          <div
+            className="modal-card-title notification is-danger"
+            data-cy="modal-header"
+          >
+            {`${errorMessage} information. Try again later.`}
 
             <button
               type="button"
@@ -49,7 +46,7 @@ export const TodoModal: React.FC<Props> = ({
               data-cy="modal-close"
               onClick={() => setSelectedTodo(null)}
             />
-          </header>
+          </div>
         </div>
       )}
 
